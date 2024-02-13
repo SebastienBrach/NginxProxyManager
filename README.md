@@ -1,2 +1,1 @@
 # NginxProxyManager
-NginxProxyManager

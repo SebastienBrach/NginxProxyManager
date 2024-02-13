@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+
+  app_nginx:
+    image: nginx:${CUSTOM_IMAGE_VERSION}
+    restart: ${RESTART}
+    container_name: NGINX
+    build:
+      context: .
+      args:
+        IMAGE_VERSION: ${IMAGE_VERSION}
+    environment:
+      PUID: 1000
+      PGID: 1000
+    ports:
+      - '${NGINX_HTTP_PORT}:${NGINX_HTTP_PORT}' # Public HTTP Port
+      - '${NGINX_HTTPS_PORT}:${NGINX_HTTPS_PORT}' # Public HTTPS Port
+      - '${NGINX_WEBADMIN_PORT}:${NGINX_WEBADMIN_PORT}' # Public HTTPS Port
+    volumes:
+      - ${LOCAL_DATA_VOLUME}:/data
+      - ${LOCAL_LETSENCRYPT_VOLUME}:/etc/letsencrypt
+    healthcheck:
+      test: ["CMD", "/bin/check-health"]
+      interval: 10s
+      timeout: 3s
+
+networks:
+  default:
+    name: nginx-network

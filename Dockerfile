@@ -1,0 +1,2 @@
+ARG IMAGE_VERSION
+FROM jc21/nginx-proxy-manager:${IMAGE_VERSION}
