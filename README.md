@@ -7,3 +7,5 @@ Fonctionnalités
 - Certificats SSL : Gère facilement les certificats SSL/TLS pour sécuriser vos domaines, avec l’intégration de Let’s Encrypt.
 - Redirections : Créez des règles de redirection pour vos domaines et sous-domaines.
 - Interface utilisateur : Une interface web intuitive pour configurer les proxys sans avoir à manipuler directement les fichiers de configuration Nginx.
+
+[Documentation officielle](https://nginxproxymanager.com/guide/)
